@@ -1,14 +1,19 @@
 .global _start
 
 .section .data
+    x: .string "rossi\0"
+    y: .string "mario\0"
+    
 .section .rodata
 .section .bss
 .section .text
 
 _start:
+    la x10, x
+    la x11, y
     jal ra, strcpy
     li a7, 93 #exit
-
+    ecall
 strcpy:
 	addi	sp,sp,-8	# adjust stack for 1 dw
 	sd	x19,0(sp)	# push x19
