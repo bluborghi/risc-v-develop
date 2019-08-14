@@ -3,9 +3,7 @@
 .section .data
     x: .string "rossi\0"
     y: .string "mario\0"
-    
-.section .rodata
-.section .bss
+  
 .section .text
 
 _start:
