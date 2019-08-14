@@ -6,6 +6,13 @@
   
 .section .text
 
+_start:
+    la x10, x
+    la x11, y
+    jal ra, strcpy
+    li a7, 93 #exit
+    ecall
+
 strcpy:
 	addi	sp,sp,-8	# adjust stack for 1 dw
 	sd	x19,0(sp)	# push x19
@@ -22,9 +29,4 @@ L2:
 	ld	x19,0(sp)	# restore saved x19
 	addi	sp,sp,8		# pop 1 dw from stack
 	jalr	x0,0(ra)	# and return
-_start:
-    la x10, x
-    la x11, y
-    jal ra, strcpy
-    li a7, 93 #exit
-    ecall
+    
