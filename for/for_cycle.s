@@ -2,8 +2,8 @@
 
 
 .section .rodata
-    n: .dword 9
-
+    n: .dword 10
+    msg: .string "ciao"
 .section .text
 
 _start:
@@ -13,8 +13,8 @@ loop:
     blt t1, t0, exit # if t1 < t0 then exit
     
     li a0, 0 #write on stdout
-    ld a1, t0
-    li a2, 8
+    la a1, msg
+    li a2, 4
     li a7, 64 #sys write
     ecall
     
