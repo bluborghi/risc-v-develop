@@ -26,21 +26,11 @@
 
 .global _start
 
-.section .data
-	num:	.byte '0', ' ', '\n'
-
 .section .text
 
 _start:
 
-	#
-	# parametri della write
-	#
-	la	a1, num
-	#
-	# due byte per stampare anche lo spazio
-	li	a2, 3
-	li	a7, _SYS_WR
+	
 	
 	# contatore ciclo for
 	li	t0, 0
@@ -58,9 +48,7 @@ _start:
 		#
 		# incrementa il numero
 		#
-		lb	s0, (a1)
-		addi	s0, s0, +1
-		sb	s0, (a1)
+		
 		
 		#
 		# logica di controllo del for
@@ -68,10 +56,7 @@ _start:
 		addi	t0, t0, +1
 		blt	t0, t1, loop
 
-	# stampa a capo
-	li	a2, 1
-	addi	a1, a1, 2
-	ecall
+	
 	
 	# esce dal programma
 	li	a7, _SYS_EX
