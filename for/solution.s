@@ -57,7 +57,7 @@ _start:
 		j loop
 
 	
-	
+	exit:
 	# esce dal programma
 	li	a7, _SYS_EX
 	ecall
