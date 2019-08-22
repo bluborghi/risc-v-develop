@@ -15,12 +15,14 @@ loop:
     blt t1, t0, exit # if t1 < t0 then exit
     
     li a0, 0 #write on stdout
+    la a1, msg
     li a2, 5
     li a7, 64 #sys write
-    
-    la a1, msg
     ecall
+    li a0, 0 #write on stdout
     la a1, newline
+    li a2, 5
+    li a7, 64 #sys write
     ecall
 
     la t4, msg
@@ -28,9 +30,6 @@ loop:
     addi t3, t3, 1
     sb t3, 0(t4)
 
-    
-    
-    
     addi t0, t0, +1
     j loop
 exit:        
