@@ -1,8 +1,8 @@
 
 .global _start
 
-.section .data
-    res: .dword 0
+.section .bss
+    res: .dword
 .section .text
 
 _start:
