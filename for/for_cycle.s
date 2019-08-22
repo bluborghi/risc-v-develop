@@ -23,9 +23,10 @@ loop:
     la a1, newline
     ecall
 
-    lb t3, msg
+    la t4, msg
+    lb t3, 0(t4)
     addi t3, t3, 1
-    sb t3, msg
+    sb t3, 0(t4)
 
     
     
