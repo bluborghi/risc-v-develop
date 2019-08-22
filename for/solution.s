@@ -40,7 +40,7 @@ _start:
 	li	t1, 10
 
 	loop:
-
+        blt t1, t0, exit # if t1 < t0 then exit
 		# stampa
 		li	a0, 0
 		ecall
@@ -54,7 +54,7 @@ _start:
 		# logica di controllo del for
 		#
 		addi	t0, t0, +1
-		blt	t0, t1, loop
+		j loop
 
 	
 	
