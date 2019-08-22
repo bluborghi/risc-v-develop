@@ -6,17 +6,17 @@
 .section .text
 
 _start:
-    li a2, 1
+    li a2, 0
     jal ra, fact
     
-    #la t1, res
-    #sd a0, 0(t1)
+    la t1, res
+    sd a0, 0(t1)
 
-    #li a0, 0 #write on stdout
-    #la a1, res
-    #li a2, 8
-    #li a7, 64 #sys write
-    #ecall
+    li a0, 0 #write on stdout
+    la a1, res
+    li a2, 8
+    li a7, 64 #sys write
+    ecall
 
     li a7, 93
     ecall
