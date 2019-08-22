@@ -2,7 +2,7 @@
 
 
 .section .rodata
-    n: 9
+    n: .dword 9
 
 .section .text
 
