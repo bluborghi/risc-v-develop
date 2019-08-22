@@ -26,18 +26,14 @@
 
 .global _start
 
+.section .rodata
+    n: .dword 9
+
 .section .text
 
 _start:
-
-	
-	
-	# contatore ciclo for
-	li	t0, 0
-
-	# numero di cicli da
-	# fare
-	li	t1, 10
+    li t0, 0
+    ld t1, n
 
 	loop:
         blt t1, t0, exit # if t1 < t0 then exit
