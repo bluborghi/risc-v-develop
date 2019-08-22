@@ -26,32 +26,53 @@
 
 .global _start
 
-.section .rodata
-    n: .dword 9
+.section .data
+	num:	.byte '0', ' ', '\n'
 
 .section .text
 
 _start:
-    li t0, 0
-    ld t1, n
+
+	#
+	# parametri della write
+	#
+	la	a1, num
+	#
+	# due byte per stampare anche lo spazio
+	li	a2, 3
+	li	a7, _SYS_WR
+	
+	# contatore ciclo for
+	li	t0, 0
+
+	# numero di cicli da
+	# fare
+	li	t1, 10
 
 	loop:
-        blt t1, t0, exit # if t1 < t0 then exit
-		
+
+		# stampa
+		li	a0, 0
+		ecall
 	
 		#
 		# incrementa il numero
 		#
-		
+		lb	s0, (a1)
+		addi	s0, s0, +1
+		sb	s0, (a1)
 		
 		#
 		# logica di controllo del for
 		#
 		addi	t0, t0, +1
-		j loop
+		blt	t0, t1, loop
 
+	# stampa a capo
+	li	a2, 1
+	addi	a1, a1, 2
+	ecall
 	
-	exit:
 	# esce dal programma
 	li	a7, _SYS_EX
 	ecall
