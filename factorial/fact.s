@@ -6,7 +6,7 @@
 .section .text
 
 _start:
-    li a2, 5
+    li a2, 1
     jal ra, fact
     
     #la t1, res
