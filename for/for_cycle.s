@@ -16,12 +16,12 @@ loop:
     
     li a0, 0 #write on stdout
     la a1, msg
-    li a2, 5
+    li a2, 1
     li a7, 64 #sys write
     ecall
     li a0, 0 #write on stdout
     la a1, newline
-    li a2, 5
+    li a2, 1
     li a7, 64 #sys write
     ecall
 
