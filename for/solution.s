@@ -37,9 +37,7 @@ _start:
 
 	loop:
         blt t1, t0, exit # if t1 < t0 then exit
-		# stampa
-		li	a0, 0
-		ecall
+		
 	
 		#
 		# incrementa il numero
