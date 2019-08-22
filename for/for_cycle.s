@@ -23,10 +23,13 @@ loop:
     la a1, newline
     ecall
 
-    lb t3, (msg)
+    lb t3, 0(msg)
     addi t3, t3, 1
-    sb t3, (msg)
+    sb t3, 0(msg)
 
+    
+    
+    
     addi t0, t0, +1
     j loop
 exit:        
