@@ -12,7 +12,7 @@ _start:
     li t0, 0
     ld t1, n
 loop:
-    blt t1, t0, exit # if t1 < t0 then exit
+    ble t1, t0, exit # if t1 <= t0 then exit
     
     li a0, 0 #write on stdout
     la a1, msg
