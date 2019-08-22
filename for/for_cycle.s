@@ -8,7 +8,7 @@
 
 _start:
     li t0, 0
-    la t1, n
+    ld t1, n
 loop:
     blt t1, t0, exit # if t1 < t0 then exit
     
@@ -18,7 +18,7 @@ loop:
     li a7, 64 #sys write
     ecall
 
-    addi t0, t0, 1
+    addi t0, t0, +1
     j loop
 exit:        
     li a7, 93
