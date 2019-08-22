@@ -9,7 +9,7 @@ _start:
     li a2, 5
     jal ra, fact
     
-    la t1 res
+    la t1, res
     sd a0, 0(t1)
 
     li a0, 0 #write on stdout
