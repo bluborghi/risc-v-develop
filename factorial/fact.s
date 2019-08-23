@@ -1,20 +1,20 @@
 
 .global _start
 
-.section .bss
-    res: .dword
+.section .data
+    res: .dword 0
 .section .text
 
 _start:
-    li a2, 0
+    li a2, 5
     jal ra, fact
     
     la t1, res
-    sd a0, 0(t1)
+    sd a0, 0(t1) 
 
     li a0, 0 #write on stdout
     la a1, res
-    li a2, 8
+    li a2, 1
     li a7, 64 #sys write
     ecall
 
@@ -28,12 +28,17 @@ fact:
     li t0, 1
     beq a2, t0, L0
     
-    addi sp, sp, -8
+    addi sp, sp, -16
     sd a2, 0(sp)
+    sd ra, 8(sp)
     addi a2, a2, -1
+
     jal ra, fact
+
     ld a2, 0(sp)
-    addi sp, sp, +8
+    ld ra, 8(sp)
+    addi sp, sp, +16
+
     mul a0, a0, a2
     ret
 
