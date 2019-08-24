@@ -1,9 +1,9 @@
 .global _start
 
 .section .data
-    a: .dword 24,21,44,12,215
-    b: .dword 124,66,130,101,4
-    n: .dword 5
+    a: .dword 24,21,44
+    b: .dword 124,66,130
+    n: .dword 3
 
 .section .text
 
